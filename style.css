@@ -8,132 +8,159 @@
 
 body{
     font-family:'Poppins', sans-serif;
-    background:linear-gradient(135deg,#0f172a,#1e293b,#334155);
-    background-size:400% 400%;
-    animation:gradientBG 10s ease infinite;
+    background: radial-gradient(circle at top, #0f172a, #020617);
     min-height:100vh;
     padding:40px 20px;
-    color:#1e293b;
+    color:#e2e8f0;
+    overflow-x:hidden;
 }
 
-/* Animated background */
-@keyframes gradientBG {
-    0% {background-position:0% 50%;}
-    50% {background-position:100% 50%;}
-    100% {background-position:0% 50%;}
+/* glowing background layer */
+body::before{
+    content:"";
+    position:fixed;
+    width:600px;
+    height:600px;
+    background:radial-gradient(circle,#2563eb,transparent 70%);
+    top:-100px;
+    left:-100px;
+    filter:blur(120px);
+    opacity:0.4;
 }
 
+/* MAIN CARD */
 .resume{
     max-width:950px;
     margin:auto;
-    background:rgba(255,255,255,0.95);
-    backdrop-filter:blur(12px);
-    border-radius:22px;
     padding:45px;
-    box-shadow:0 25px 60px rgba(0,0,0,0.25);
+    border-radius:25px;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,0.1);
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.6),
+        inset 0 1px 0 rgba(255,255,255,0.1);
     transform-style:preserve-3d;
     transition:0.4s ease;
 }
 
-/* subtle 3D hover */
+/* 3D tilt effect */
 .resume:hover{
-    transform:rotateX(2deg) rotateY(2deg) scale(1.01);
+    transform:rotateX(5deg) rotateY(5deg) scale(1.01);
 }
 
+/* HEADER */
 h1{
     text-align:center;
-    font-size:38px;
-    color:#0f172a;
-    letter-spacing:2px;
+    font-size:40px;
     font-weight:700;
-    margin-bottom:8px;
-    transition:0.3s;
+    letter-spacing:2px;
+    background:linear-gradient(90deg,#60a5fa,#3b82f6,#2563eb);
+    -webkit-background-clip:text;
+    color:transparent;
 }
 
 .title{
     text-align:center;
+    margin-top:8px;
     font-size:18px;
-    font-weight:600;
-    color:#2563eb;
-    margin-bottom:10px;
+    color:#93c5fd;
 }
 
 .contact{
     text-align:center;
     font-size:14px;
-    color:#64748b;
-    margin-bottom:32px;
-    padding-bottom:18px;
-    border-bottom:2px solid #e2e8f0;
+    margin:20px 0 30px;
+    color:#cbd5f5;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+    padding-bottom:15px;
 }
 
+/* SECTION */
 .section{
-    margin-bottom:28px;
+    margin-bottom:30px;
 }
 
-/* pill style headings */
+/* futuristic label */
 .section-title{
     display:inline-block;
-    font-size:14px;
-    font-weight:700;
-    color:#fff;
-    background:linear-gradient(90deg,#2563eb,#1d4ed8);
     padding:8px 18px;
     border-radius:30px;
-    margin-bottom:14px;
+    background:linear-gradient(90deg,#2563eb,#1e40af);
+    font-size:13px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    box-shadow:0 0 15px rgba(37,99,235,0.5);
 }
 
-/* 3D cards */
+/* TEXT */
+p{
+    margin-top:12px;
+    line-height:1.7;
+    color:#e2e8f0;
+}
+
+/* CARDS */
 .edu-item,
 .project{
-    background:#ffffff;
-    border-radius:12px;
-    padding:14px 18px;
-    margin-top:12px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.1);
-    transition:0.35s ease;
+    margin-top:15px;
+    padding:18px;
+    border-radius:16px;
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+    transition:0.4s ease;
     transform-style:preserve-3d;
 }
 
-/* Hover 3D lift */
+/* PRO 3D HOVER */
 .edu-item:hover,
 .project:hover{
-    transform:translateY(-8px) scale(1.02) rotateX(3deg);
-    box-shadow:0 20px 40px rgba(37,99,235,0.25);
+    transform:
+        translateY(-10px)
+        rotateX(6deg)
+        rotateY(-4deg)
+        scale(1.03);
+
+    box-shadow:
+        0 30px 60px rgba(0,0,0,0.6),
+        0 0 25px rgba(37,99,235,0.5);
 }
 
+/* PROJECT TITLE */
 .project-title{
     font-weight:600;
-    color:#0f172a;
+    color:#60a5fa;
 }
 
+/* SKILLS */
 .skills p{
-    background:#eff6ff;
-    padding:10px 14px;
+    background:rgba(255,255,255,0.04);
+    padding:12px;
     border-radius:10px;
     margin-bottom:10px;
-    border-left:4px solid #2563eb;
+    border-left:3px solid #3b82f6;
     transition:0.3s;
 }
 
-/* Skill hover effect */
 .skills p:hover{
-    transform:translateX(6px);
-    background:#dbeafe;
+    transform:translateX(8px);
+    background:rgba(59,130,246,0.1);
 }
 
+/* LIST */
 ul{
-    padding-left:22px;
     margin-top:10px;
+    padding-left:20px;
 }
 
 ul li{
     margin-bottom:10px;
-    line-height:1.7;
-    color:#334155;
+    line-height:1.6;
+    color:#cbd5f5;
 }
 
-/* Fade animation */
+/* SMOOTH FADE-IN */
 .resume{
     animation:fadeIn 1s ease;
 }
@@ -141,7 +168,7 @@ ul li{
 @keyframes fadeIn{
     from{
         opacity:0;
-        transform:translateY(30px);
+        transform:translateY(40px);
     }
     to{
         opacity:1;
@@ -149,7 +176,7 @@ ul li{
     }
 }
 
-/* Mobile responsive */
+/* MOBILE */
 @media(max-width:768px){
     .resume{
         padding:25px;
@@ -161,9 +188,5 @@ ul li{
 
     .title{
         font-size:16px;
-    }
-
-    p, li{
-        font-size:14px;
     }
 }
